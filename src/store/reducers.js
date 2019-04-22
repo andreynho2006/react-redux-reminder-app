@@ -27,10 +27,16 @@ export const errors = (state=[], action) => {
 export const allSkiDays = (state=[], action) => {
     switch(action.type) {
         case C.ADD_DAY :
-            return [
+            // const to check for every skiDay if skiDay.date equals payload date
+            //if true return the state and not add payload data to state else call skiDay
+            const hasDayAlready = state.some(skiDay => skiDay.date === action.payload.date)
+            return (hasDayAlready) ?
+            state:
+            [
                 ...state,
                 skiDay(null, action)
             ]
+
         default: 
             state
     }
