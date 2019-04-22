@@ -1,0 +1,28 @@
+{
+    "allSkyDays":[
+        {
+            "rrsort":"Kirkwood",
+            "date":"2016-12-7",
+            "powder": true,
+            "backcountry": false
+        },
+        {
+            "rrsort":"Squaw Walley",
+            "date":"2016-12-8",
+            "powder": false,
+            "backcountry": false
+        },
+        {
+            "rrsort":"Mt Tallac",
+            "date":"26-12-9",
+            "powder": false,
+            "backcountry": true
+        }
+    ],
+    "goal": 10,
+    "errors":[],
+    "resortNames": {
+        "fetching": false,
+        "suggestions": ["Squaw Walley", "Snowbird", "Stowe", "Steamboat"]
+    }
+}
