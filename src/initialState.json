@@ -1,19 +1,19 @@
 {
     "allSkyDays":[
         {
-            "rrsort":"Kirkwood",
+            "resort":"Kirkwood",
             "date":"2016-12-7",
             "powder": true,
             "backcountry": false
         },
         {
-            "rrsort":"Squaw Walley",
+            "resort":"Squaw Walley",
             "date":"2016-12-8",
             "powder": false,
             "backcountry": false
         },
         {
-            "rrsort":"Mt Tallac",
+            "resort":"Mt Tallac",
             "date":"26-12-9",
             "powder": false,
             "backcountry": true
