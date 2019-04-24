@@ -1,46 +1,36 @@
+import C from './constants'
+import React from 'react'
+import { render } from 'react-dom'
+import routes from './routes'
+import sampleData from './initialState'
 import storeFactory from './store'
-import { suggestResortNames } from './actions'
-import { addDay, 
-        addError,
-        clearError,
-        changeSuggestions,
-        clearSuggestions,
-        removeDay, 
-        setGoal,
-        randomGoals
-        } from './actions'
+import { Provider } from 'react-redux'
+import { addError } from './actions'
 
+const initialState = (localStorage["redux-store"]) ?
+    JSON.parse(localStorage["redux-store"]) :
+    sampleData
 
-const store = storeFactory()
+const saveState = () => 
+    localStorage["redux-store"] = JSON.stringify(store.getState())
 
-store.dispatch(
-    suggestResortNames("hea")
+const handleError = error => {
+	store.dispatch(
+		addError(error.message)
+	)
+}
+
+const store = storeFactory(initialState)
+store.subscribe(saveState)
+
+window.React = React
+window.store = store
+
+window.addEventListener("error", handleError)
+
+render(
+	<Provider store={store}>
+	   {routes}
+	</Provider>,
+  document.getElementById('react-container')
 )
-
-// store.dispatch(
-//     randomGoals()
-// )
-
-// store.dispatch(
-//     removeDay("2016-12-22")
-// )
-
-// store.dispatch(
-//     setGoal(55)
-// )
-
-// store.dispatch(
-//     addError("something went wrong!!!!")
-// )
-
-// store.dispatch(
-//     clearError(0)
-// )
-
-// store.dispatch(
-//     changeSuggestions(['One','Two','Three'])
-// )
-
-// store.dispatch(
-//     clearSuggestions()
-// )
