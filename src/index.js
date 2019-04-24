@@ -1,39 +1,46 @@
 import storeFactory from './store'
+import { suggestResortNames } from './actions'
 import { addDay, 
         addError,
         clearError,
         changeSuggestions,
         clearSuggestions,
         removeDay, 
-        setGoal } from './actions'
+        setGoal,
+        randomGoals
+        } from './actions'
 
 
 const store = storeFactory()
 
 store.dispatch(
-    addDay("Heavenly", "2016-12-22")
+    suggestResortNames("hea")
 )
 
-store.dispatch(
-    removeDay("2016-12-22")
-)
+// store.dispatch(
+//     randomGoals()
+// )
 
-store.dispatch(
-    setGoal(55)
-)
+// store.dispatch(
+//     removeDay("2016-12-22")
+// )
 
-store.dispatch(
-    addError("something went wrong!!!!")
-)
+// store.dispatch(
+//     setGoal(55)
+// )
 
-store.dispatch(
-    clearError(0)
-)
+// store.dispatch(
+//     addError("something went wrong!!!!")
+// )
 
-store.dispatch(
-    changeSuggestions(['One','Two','Three'])
-)
+// store.dispatch(
+//     clearError(0)
+// )
 
-store.dispatch(
-    clearSuggestions()
-)
+// store.dispatch(
+//     changeSuggestions(['One','Two','Three'])
+// )
+
+// store.dispatch(
+//     clearSuggestions()
+// )
