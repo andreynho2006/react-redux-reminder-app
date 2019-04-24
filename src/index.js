@@ -1,23 +1,17 @@
-import C from './constants';
-import appReducer from './store/reducers';
-import { createStore } from 'redux';
+import storeFactory from './store'
+import { addDay, removeDay, setGoal } from './actions'
 
-const store = createStore(appReducer);
 
-const unsubscribeGoalLogger = store.subscribe(
-    () => console.log( `     Goal: ${store.getState().goal}`)
+const store = storeFactory()
+
+store.dispatch(
+    addDay("Heavenly", "2016-12-22")
 )
 
-setInterval(() => {
-    store.dispatch({
-        type: C.SET_GOAL,
-        payload: Math.floor(Math.random() * 100)
-    })   
-}, 250)
+store.dispatch(
+    removeDay("2016-12-22")
+)
 
-setTimeout(() => {
-    unsubscribeGoalLogger();
-}, 3000)
-
-
-
+store.dispatch(
+    setGoal(55)
+)
